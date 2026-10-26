@@ -36,9 +36,7 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#02070d;fon
 .spark{position:absolute;z-index:47;left:50%;top:64%;width:6px;height:6px;pointer-events:none}
 .spark i{position:absolute;left:0;top:0;width:2px;height:18px;border-radius:8px;background:linear-gradient(#fff4d7,#d59a41);opacity:0;transform-origin:50% 0}
 .spark i:nth-child(1){--r:0deg}.spark i:nth-child(2){--r:30deg}.spark i:nth-child(3){--r:60deg}.spark i:nth-child(4){--r:90deg}.spark i:nth-child(5){--r:120deg}.spark i:nth-child(6){--r:150deg}.spark i:nth-child(7){--r:180deg}.spark i:nth-child(8){--r:210deg}.spark i:nth-child(9){--r:240deg}.spark i:nth-child(10){--r:270deg}.spark i:nth-child(11){--r:300deg}.spark i:nth-child(12){--r:330deg}
-.tap{position:absolute;z-index:80;left:25%;right:25%;bottom:5.3%;height:11%;cursor:pointer;border-radius:999px}
-.tap:before{content:"";position:absolute;left:12%;right:12%;top:20%;bottom:20%;border-radius:999px;border:1px solid rgba(255,219,151,.14);animation:pulse 2.5s 1s ease-in-out infinite}
-@keyframes pulse{50%{border-color:rgba(255,223,162,.55);box-shadow:0 0 30px rgba(229,175,88,.18)}}
+.tap{position:absolute;z-index:80;left:28.2%;right:27.6%;top:82.1%;height:6.4%;cursor:pointer;border-radius:999px}
 .hint{position:absolute;z-index:79;bottom:1.5%;left:0;right:0;text-align:center;font:600 9px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.31em;text-transform:uppercase;color:rgba(255,236,201,.76);text-shadow:0 2px 12px rgba(0,0,0,.75);animation:hint 2.4s ease-in-out infinite;pointer-events:none}
 @keyframes hint{50%{opacity:.42;transform:translateY(2px)}}
 #open:checked~.app .lightSweep{animation:flash 1.3s .18s var(--ease) both}
@@ -76,7 +74,7 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#02070d;fon
   <div class="lightSweep"></div>
   <div class="spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="vignette"></div>
-  <label class="tap" for="open" aria-label="Daveti aç"></label>
+  <label class="tap" for="open" role="button" tabindex="0" aria-label="Daveti aç"></label>
   <div class="hint">Dokun · Daveti Aç</div>
   <nav class="actions" aria-label="Davet işlemleri">
 <a class="map" href="https://www.google.com/maps/search/?api=1&query=B%C3%BCy%C3%BCk+Urartu+Oteli+Van" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Konum</span></a>
@@ -123,6 +121,13 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#02070d;fon
   const soundBtn = document.getElementById('soundBtn');
   const tap = document.querySelector('.tap');
   const replay = document.querySelector('.replay');
+
+  tap.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      tap.click();
+    }
+  });
 
   music.volume = 0.72;
 
