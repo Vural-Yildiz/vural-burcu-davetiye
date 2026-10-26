@@ -64,6 +64,8 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#02070d;fon
 @media(min-width:650px){.viewport{height:min(96dvh,1000px);width:auto;border-radius:30px}.layer,.vignette{border-radius:30px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
+<link rel="stylesheet" href="assets/rsvp.css?v=20261026">
+<script src="assets/rsvp.js?v=20261026" defer></script>
 </head>
 <body>
 <input type="checkbox" id="open">
@@ -85,7 +87,32 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#02070d;fon
   <label class="replay" for="open">↻ Tekrar izle</label>
  </main>
 </div>
-<div id="rsvp" class="modal"><div class="modalCard"><div class="mon">VB</div><h2>Katılım Onayı</h2><p>Katılım bağlantısını daha sonra WhatsApp veya form sistemine bağlayabiliriz.</p><a class="choice" href="#">Katılıyorum</a><a class="choice" href="#">Katılamıyorum</a><a class="close" href="#">Kapat</a></div></div>
+<div id="rsvp" class="modal" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle" aria-hidden="true">
+ <div class="modalCard">
+  <div class="mon">V/B</div>
+  <h2 id="rsvpTitle">Katılım Onayı</h2>
+  <p class="rsvp-intro">Bu özel günümüzde sizi de aramızda görmek isteriz.</p>
+  <form id="rsvpForm" action="https://formsubmit.co/vuralyildiz.c@gmail.com" method="POST">
+   <label class="rsvp-field" for="rsvpName"><span>Adınız ve soyadınız</span><input id="rsvpName" name="Ad Soyad" type="text" autocomplete="name" minlength="2" maxlength="80" required></label>
+   <label class="rsvp-field" for="rsvpAttendance"><span>Katılım durumunuz</span><select id="rsvpAttendance" name="Katılım Durumu" required><option value="Katılıyorum">Katılıyorum</option><option value="Katılamıyorum">Katılamıyorum</option></select></label>
+   <label class="rsvp-field" id="rsvpCountField" for="rsvpCount"><span>Kaç kişi katılacaksınız? (Siz dahil)</span><input id="rsvpCount" name="Kişi Sayısı" type="number" inputmode="numeric" min="1" max="20" step="1" value="1" required></label>
+   <label class="rsvp-field" for="rsvpNote"><span>Notunuz (isteğe bağlı)</span><textarea id="rsvpNote" name="Not" maxlength="500" rows="2"></textarea></label>
+   <label class="rsvp-honey" aria-hidden="true">Bu alanı boş bırakın<input id="rsvpHoney" name="_honey" type="text" tabindex="-1" autocomplete="off"></label>
+   <input type="hidden" name="_subject" value="Vural &amp; Burcu — Katılım Yanıtı">
+   <input type="hidden" name="_template" value="table">
+   <input type="hidden" name="_captcha" value="false">
+   <input type="hidden" name="_url" value="https://vural-yildiz.github.io/vural-burcu-davetiye/">
+   <input type="hidden" name="Etkinlik" value="Vural &amp; Burcu Düğünü">
+   <input type="hidden" name="Tarih" value="14 Kasım 2026">
+   <input type="hidden" name="Saat" value="12:00–17:00 (Türkiye saati)">
+   <input type="hidden" name="Yer" value="Büyük Urartu Oteli, Van">
+   <button class="rsvp-send" id="rsvpSend" type="submit">Yanıtımı Gönder</button>
+   <p class="rsvp-status" id="rsvpStatus" role="status" aria-live="polite" hidden></p>
+   <p class="rsvp-privacy">Yanıtınız düğün sahiplerine e-posta ile iletilir.</p>
+  </form>
+  <a class="close" href="#">Kapat</a>
+ </div>
+</div>
 <audio id="openingMusic" preload="auto" playsinline>
   <source src="Vural_Burcu_Opening.mp3" type="audio/mpeg">
 </audio>

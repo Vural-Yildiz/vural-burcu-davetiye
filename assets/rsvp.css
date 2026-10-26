@@ -1,0 +1,18 @@
+.modal{overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box}
+.modalCard{box-sizing:border-box;max-height:calc(100dvh - 44px);overflow-y:auto;padding:25px 22px}
+.modalCard .mon{font-size:40px}
+.modalCard h2{margin:10px 0 8px}
+.modalCard .rsvp-intro{margin:0 0 19px;font-size:13px}
+.rsvp-field{display:block;margin:13px 0;text-align:left}
+.rsvp-field>span{display:block;margin-bottom:7px;color:#f8e4be;font:500 13px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.rsvp-field input,.rsvp-field select,.rsvp-field textarea{box-sizing:border-box;display:block;width:100%;min-height:44px;padding:11px 12px;border:1px solid rgba(231,187,113,.42);border-radius:12px;background:#102032;color:#fff7e7;font:16px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:dark}
+.rsvp-field textarea{min-height:68px;resize:vertical}
+.rsvp-field input:focus,.rsvp-field select:focus,.rsvp-field textarea:focus{outline:2px solid #e7bb71;outline-offset:2px}
+.rsvp-send{display:block;width:100%;min-height:46px;margin-top:19px;padding:12px;border:1px solid #e7bb71;border-radius:999px;background:linear-gradient(130deg,#efd399,#c6954b);color:#101b29;cursor:pointer;font:600 15px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.rsvp-send:disabled{cursor:default;opacity:.7}
+.rsvp-send:focus-visible,.modalCard .close:focus-visible{outline:2px solid #fff0c8;outline-offset:3px}
+.modalCard .rsvp-status{padding:11px;border-radius:10px;background:rgba(231,187,113,.09);color:#f8e4be;font-size:13px}
+.modalCard .rsvp-status[data-state="error"]{color:#ffd2bd;border:1px solid rgba(255,190,160,.35)}
+.modalCard .rsvp-privacy{font-size:11px;line-height:1.5;margin:12px 0 0;color:#bcae97}
+.rsvp-honey{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+[hidden]{display:none!important}
